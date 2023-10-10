@@ -3,6 +3,7 @@ import { CgWorkAlt } from "react-icons/cg";
 import { FaReact } from "react-icons/fa";
 import { LuGraduationCap } from "react-icons/lu";
 import redditCloneImg from "@/public/redditClone.png";
+import { BsFillAirplaneEnginesFill } from "react-icons/bs";
 
 export const links = [
   {
@@ -33,28 +34,40 @@ export const links = [
 
 export const experiencesData = [
   {
-    title: "Graduated bootcamp",
-    location: "Miami, FL",
+    title: "Military Service - Ground equipment mechanic",
+    location: "Israeli Air Force",
     description:
-      "I graduated after 6 months of studying. I immediately found a job as a front-end developer.",
+      "Acquired great analytic skills, the ability to work under stressful conditions and great teamwork. Troubleshooting and analyzing different issues, finding unique solutions depending on the tasks at hand.",
+    icon: React.createElement(BsFillAirplaneEnginesFill),
+    date: "08/2016 - 04/2019",
+  },
+  {
+    title: "Java",
+    location: "The Open University",
+    description: "Java A course",
     icon: React.createElement(LuGraduationCap),
-    date: "2019",
+    date: "09/2020 - 03/2021",
   },
   {
-    title: "Front-End Developer",
-    location: "Orlando, FL",
-    description:
-      "I worked as a front-end developer for 2 years in 1 job and 1 year in another job. I also upskilled to the full stack.",
+    title: "C# Master Class",
+    location: "Udemy",
+    description: "Full Mass Class Course of C#",
     icon: React.createElement(CgWorkAlt),
-    date: "2019 - 2021",
+    date: "04/2022 - 06/2022",
   },
   {
-    title: "Full-Stack Developer",
-    location: "Houston, TX",
-    description:
-      "I'm now a full-stack developer working as a freelancer. My stack includes React, Next.js, TypeScript, Tailwind, Prisma and MongoDB. I'm open to full-time opportunities.",
+    title: "Full Stack Engineer",
+    location: "Codecademy.com",
+    description: "Frontend and Backend full course",
     icon: React.createElement(FaReact),
-    date: "2021 - present",
+    date: "12/2022 - 03/2023",
+  },
+  {
+    title: "Full Stack Web Development, Python and JavaScript program",
+    location: "Developers Institute, TLV Coding Bootcamp",
+    description: "DI's Python and Web development",
+    icon: React.createElement(FaReact),
+    date: "12/2022 - 03/2023",
   },
 ] as const;
 
