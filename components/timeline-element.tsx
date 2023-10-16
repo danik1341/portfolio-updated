@@ -7,6 +7,8 @@ interface TimelineElementProps {
   item: {
     date: string;
     icon: React.CElement<{}, React.Component<{}, any, any>>;
+    // icon: string;
+    // icon: any;
     title: string;
     location: string;
     description: string;
