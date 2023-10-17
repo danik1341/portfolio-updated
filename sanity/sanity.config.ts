@@ -1,9 +1,10 @@
-import {defineConfig} from 'sanity'
-import {deskTool} from 'sanity/desk'
-import {visionTool} from '@sanity/vision'
-import {schemaTypes} from './schemas'
+import { visionTool } from '@sanity/vision'
+import { defineConfig } from 'sanity'
+import { deskTool } from 'sanity/desk'
 
-export default defineConfig({
+import { schemaTypes } from './schemas'
+
+const config = defineConfig({
   name: 'default',
   title: 'portfolio',
 
@@ -11,6 +12,7 @@ export default defineConfig({
   dataset: 'production',
   apiVersion: '2023-10-16',
   useCdn: true,
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
 
   basePath: '/admin',
 
@@ -20,3 +22,5 @@ export default defineConfig({
     types: schemaTypes,
   },
 })
+
+export default config

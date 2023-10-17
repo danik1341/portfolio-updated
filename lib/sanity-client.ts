@@ -1,14 +1,13 @@
-import { createClient } from "next-sanity";
+import { ClientConfig, createClient } from "next-sanity";
 
-const projectId = "jk7pqztf";
-const dataset = "production";
-const apiVersion = "2023-10-16";
-
-const client = createClient({
-  projectId,
-  dataset,
-  apiVersion,
+const config: ClientConfig = {
+  projectId: "jk7pqztf",
+  dataset: "production",
+  apiVersion: "2023-10-16",
   useCdn: true,
-});
+  token: process.env.NEXT_PUBLIC_SANITY_TOKEN,
+};
+
+const client = createClient(config);
 
 export default client;
