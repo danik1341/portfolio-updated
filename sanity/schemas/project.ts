@@ -22,6 +22,8 @@ export default {
               name: 'description',
               type: 'text',
               title: 'Description',
+              validation: (Rule: any) =>
+                Rule.max(550).warning('Description should be within 500 characters.'),
             },
             {
               name: 'tags',
