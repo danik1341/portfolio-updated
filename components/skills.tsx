@@ -1,10 +1,11 @@
 "use client";
 
 import { useSectionInView } from "@/lib/hooks";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionHeading from "./section-heading";
-import { skillsData } from "@/lib/data";
 import { motion } from "framer-motion";
+import { getSkills } from "@/sanity/utils/sanity-utils";
+import { Skill } from "@/sanity/type/skill";
 
 const fadeInAnimationVariants = {
   initial: {
@@ -22,6 +23,16 @@ const fadeInAnimationVariants = {
 
 export default function Skills() {
   const { ref } = useSectionInView("Skills");
+  const [skillsData, setSkillsData] = useState<Skill[] | null>([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getSkills();
+      setSkillsData(data);
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <section
@@ -31,21 +42,22 @@ export default function Skills() {
     >
       <SectionHeading>My skills</SectionHeading>
       <ul className=" flex flex-wrap justify-center gap-2 text-lg text-gray-800">
-        {skillsData.map((skill, index) => (
-          <motion.li
-            key={index}
-            className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
-            variants={fadeInAnimationVariants}
-            initial="initial"
-            whileInView="animate"
-            viewport={{
-              once: true,
-            }}
-            custom={index}
-          >
-            {skill}
-          </motion.li>
-        ))}
+        {skillsData &&
+          skillsData.map((skill, index) => (
+            <motion.li
+              key={index}
+              className="bg-white borderBlack rounded-xl px-5 py-3 dark:bg-white/10 dark:text-white/80"
+              variants={fadeInAnimationVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{
+                once: true,
+              }}
+              custom={index}
+            >
+              {skill.title}
+            </motion.li>
+          ))}
       </ul>
     </section>
   );
